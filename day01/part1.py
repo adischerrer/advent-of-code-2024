@@ -7,11 +7,11 @@ with open('input.txt', 'r') as file:
         left.append(int(numbers[0].strip()))
         right.append(int(numbers[1].strip()))
 
-    left.sort()
-    right.sort()
-    total_distance = 0
+left.sort()
+right.sort()
+total_distance = 0
 
-    for i in range(len(left)):
-        print(f'{i=} {left[i]=} {right[i]=} | diff={abs(left[i] - right[i])}')
-        total_distance += abs(left[i] - right[i])
-    print(f'Total distance = {total_distance}')
+for i in range(len(left)):
+    print(f'{i=} {left[i]=} {right[i]=} | diff={abs(left[i] - right[i])}')
+    total_distance += abs(left[i] - right[i])
+print(f'Total distance = {total_distance}')
