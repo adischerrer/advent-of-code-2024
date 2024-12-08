@@ -40,7 +40,7 @@ def main() -> None:
             if is_xmas(v_index, h_index, mat):
                 counter += 1
 
-    print(f'{counter} XMAS found')  # 1868 XMAS found
+    print(f'{counter} XMAS found')
 
 
 if __name__ == '__main__':

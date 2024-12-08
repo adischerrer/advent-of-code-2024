@@ -61,8 +61,8 @@ def main() -> None:
             incorrect_middle_page_sum += pages_sorted[middle_index]
         print(f'Input:{pages}  -  Sorted:{pages_sorted}  -  Middle:{pages_sorted[middle_index]}  -  Correct order:{correct_order}')
 
-    print(f'Sum of the middle pages of correct input: {correct_middle_page_sum}')  # pages_sum = 6242
-    print(f'Sum of the middle pages of incorrect input: {incorrect_middle_page_sum}')  # pages_sum = 5169
+    print(f'Sum of the middle pages of correct input: {correct_middle_page_sum}')
+    print(f'Sum of the middle pages of incorrect input: {incorrect_middle_page_sum}')
 
 
 if __name__ == '__main__':
