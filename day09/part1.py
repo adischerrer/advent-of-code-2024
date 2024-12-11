@@ -48,13 +48,13 @@ def compact_disk(disk: list[Block]) -> None:
     while True:
         while not disk[start].is_free:
             start += 1
-            if start == 50335:
-                pass
         while disk[end].is_free:
             end -= 1
         if start < end:
-            disk[start] = Block(disk[end].file_id)
-            disk[end] = Block(None)
+            # Swap start with end Block
+            temp_end: Block = disk[end]
+            disk[end] = disk[start]
+            disk[start] = temp_end
         else:
             break
 
