@@ -21,18 +21,13 @@ def is_valid_trail(trail_map: list[list[int]], x: int, y: int, expected: int) ->
     return 0 <= y < len(trail_map) and 0 <= x < len(trail_map[y]) and trail_map[y][x] == expected
 
 
-def find_trails(trail_map: list[list[int]], x: int, y: int, expected: int, solutions: set[tuple[int, int]]) -> None:
+def find_trails(trail_map: list[list[int]], x: int, y: int, expected: int, solutions: int) -> int:
     for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
         if is_valid_trail(trail_map, x + dx, y + dy, expected):
             if expected == 9:
-                solutions.add((x + dx, y + dy))
-            find_trails(trail_map, x + dx, y + dy, expected + 1, solutions)
-
-
-def count_trails(trail_map: list[list[int]], x: int, y: int) -> int:
-    trail_ends: set[tuple[int, int]] = set()
-    find_trails(trail_map, x, y, 1, trail_ends)
-    return len(trail_ends)
+                solutions += 1
+            solutions = find_trails(trail_map, x + dx, y + dy, expected + 1, solutions)
+    return solutions
 
 
 def main():
@@ -42,7 +37,7 @@ def main():
     for y in range(len(trail_map)):
         for x in range(len(trail_map[y])):
             if trail_map[y][x] == 0:
-                trail_counter += count_trails(trail_map, x, y)
+                trail_counter = find_trails(trail_map, x, y, 1, trail_counter)
     print(f'Number of trails: {trail_counter}')
 
 
