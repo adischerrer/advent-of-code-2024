@@ -1,3 +1,6 @@
+import time
+
+
 def read_input() -> list[int]:
     with open("input.txt", "r") as file:
         stones: list[str] = file.read().split(' ')
@@ -30,8 +33,11 @@ def main():
     print_stones(stones)
     for i in range(1, blinks + 1):
         stones = blink(stones)
-        print(f'Blink {i}: Number of stones: {len(stones)}')
+        print(f'Blink {i:2}:  Number of stones: {len(stones):10}')
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     main()
+    end_time = time.time()
+    print(f'Execution time: {end_time - start_time:.03f}s')
